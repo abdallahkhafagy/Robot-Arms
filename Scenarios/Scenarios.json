@@ -1,0 +1,53 @@
+{
+
+"Scenario01":  {
+    "scenarioCode": 0,
+    "Actions":["Action01","Action02"],
+    "Delay":[0,5]
+  },
+
+"Scenario02":  {
+    "scenarioCode": 0,
+    "Actions":["Action01","Action03"],
+    "Delay":[0,5]
+  }
+,
+
+"Scenario03":  {
+    "scenarioCode": 0,
+    "Actions":["bye","bye1","bye2","bye1","bye2"],
+    "Delay":[0,1,1,1,1]
+  }
+,
+
+"Scenario04":  {
+    "scenarioCode": 0,
+    "Actions":["Action01","Action02"],
+    "Delay":[0,0]
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

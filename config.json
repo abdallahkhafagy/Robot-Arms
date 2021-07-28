@@ -1,0 +1,79 @@
+{
+"Body_parts":[
+{
+"name": "Right Hand",
+"address": "0x42",
+"parts":[
+{
+"name": "Hand",
+"file": "/Hand/Right",
+"indicies": [0,1,2,3,4,5],
+"initialAngles": [160,160,160,160,160,180],
+"MinAngles":[180,180,180,180,180,0],
+"MaxAngles":[0,0,0,0,0,180]
+
+},
+
+
+
+{
+"name": "Shoulder",
+"file": "/Shoulder/Right",
+"indicies": [6,7,8],
+"initialAngles": [5,180,180],
+"MinAngles":[5,180,180],
+"MaxAngles":[180,10,0]
+
+},
+
+{
+"name": "Head",
+"file": "/Head",
+"mouth_index":9,
+"neck_index":10,
+"indicies": [9,10],
+"MinAngles":[80,180],
+"MaxAngles":[130,10]
+
+}
+
+]
+
+},
+
+
+{
+"name": "Left Hand",
+"address": "0x41",
+"parts":[
+{
+"name": "Hand",
+"file": "/Hand/Left",
+"indicies": [0,1,2,3,4],
+"initialAngles": [0,0,0,0,0],
+"MinAngles":[160,160,160,160,160],
+"MaxAngles":[0,0,0,0,0]
+
+},
+
+{
+"name": "Shoulder",
+"file": "/Shoulder/Left",
+"indicies": [6,7,8],
+"initialAngles": [0,0,180],
+"MinAngles":[5,180,0],
+"MaxAngles":[180,10,170]
+
+}
+
+]
+
+}
+
+
+]
+
+
+
+
+}
