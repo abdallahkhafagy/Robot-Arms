@@ -4,16 +4,18 @@ Created on Sun Apr 25 12:49:39 2021
 
 @author: Abdullah
 """
-
+from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 
 from UpperBody import UpperBody
 import time
+from Servo import Servo
+
 
 upper = UpperBody()
 
 time.sleep(3)
-upper.runScenario("Scenario04")
-
+#print("addr:",addr,part['address'])
+upper.runScenario("Scenario05")
 
 
 '''
@@ -40,10 +42,19 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANGS = [40, 180,   180]
 MAX_ANGS  =[180, 0, 0]
 driver = ServoKit(channels=16,address = 0x42)
+driver2 = ServoKit(channels=16,address = 0x41)
 #RHand = Hand(driver,[0,1,2,3,4],MAX_ANG,MIN_ANG,MIN_IMP,MAX_IMP,"")
 #RHand.openHand()
 #RShoulder = Shoulder(driver,[6,7,8],MAX_ANGS,MIN_ANGS,MIN_IMP,MAX_IMP,"")
-#driver.servo[5].angle = 180
+
+# 0 min=> 180 max=>
+
+#6 min=> 0 max=> 180
+#7 min=> 0 max=> 180
+#8 min=> 0 max=>180
+
+#driver.servo[6].angle = 0
+
 '''
 #Constants
 nbPCAServo=5

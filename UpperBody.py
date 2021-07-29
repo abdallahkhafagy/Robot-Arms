@@ -32,15 +32,17 @@ class UpperBody():
         # list
         #for i in data['emp_details']:
         self.RHandDriver = None
+        self.LHandDriver = None
         self.RHand = None
         self.RShoulder = None
+        self.LShoulder = None
         self.list = []
         #print(data['Body_parts'])
         for part in data['Body_parts']:
-            print(data['Body_parts'])
+            #print(data['Body_parts'])
             if part['name'] == "Right Hand":
                 addr = (int(part['address'],16))
-                #print(addr)
+                #print("addr:",addr,part['address'])
                 self.RHandDriver = ServoKit(channels=16,address = addr)
                 for piece in part['parts']:
                     self.list.append(piece['file'])
@@ -49,6 +51,19 @@ class UpperBody():
                         self.RHand = Hand(self.RHandDriver,piece['indicies'],piece['initialAngles'],piece['MaxAngles'],piece['MinAngles'],self.MIN_IMP,self.MAX_IMP,path)
                     elif piece['name'] == 'Shoulder':
                         self.RShoulder = Shoulder(self.RHandDriver,piece['indicies'],piece['initialAngles'],piece['MaxAngles'],piece['MinAngles'],self.MIN_IMP,self.MAX_IMP,path)
+
+
+            if part['name'] == "Left Hand":
+                addr = (int(part['address'],16))
+                #print("addr:",addr,part['address'])
+                self.LHandDriver = ServoKit(channels=16,address = addr)
+                for piece in part['parts']:
+                    self.list.append(piece['file'])
+                    path = self.dir_path+piece['file']
+                    if piece['name'] == 'Hand':
+                        self.LHand = Hand(self.LHandDriver,piece['indicies'],piece['initialAngles'],piece['MaxAngles'],piece['MinAngles'],self.MIN_IMP,self.MAX_IMP,path)
+                    elif piece['name'] == 'Shoulder':
+                        self.LShoulder = Shoulder(self.LHandDriver,piece['indicies'],piece['initialAngles'],piece['MaxAngles'],piece['MinAngles'],self.MIN_IMP,self.MAX_IMP,path)
 
 
 
@@ -80,6 +95,8 @@ class UpperBody():
             print("Delay",scenario_data['Delay'])
             self.RHand.runAction(action)
             self.RShoulder.runAction(action)
+            self.LHand.runAction(action)
+            self.LShoulder.runAction(action)
 
 
 

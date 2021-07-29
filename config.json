@@ -20,8 +20,8 @@
 "name": "Shoulder",
 "file": "/Shoulder/Right",
 "indicies": [6,7,8],
-"initialAngles": [5,180,180],
-"MinAngles":[5,180,180],
+"initialAngles": [0,180,170],
+"MinAngles":[0,180,180],
 "MaxAngles":[180,10,0]
 
 },
@@ -49,10 +49,10 @@
 {
 "name": "Hand",
 "file": "/Hand/Left",
-"indicies": [0,1,2,3,4],
-"initialAngles": [0,0,0,0,0],
-"MinAngles":[160,160,160,160,160],
-"MaxAngles":[0,0,0,0,0]
+"indicies": [0,1,2,3,4,5],
+"initialAngles": [0,0,0,0,0,180],
+"MinAngles":[0,0,0,0,0,180],
+"MaxAngles":[180,180,180,180,180,0]
 
 },
 
@@ -60,9 +60,9 @@
 "name": "Shoulder",
 "file": "/Shoulder/Left",
 "indicies": [6,7,8],
-"initialAngles": [0,0,180],
-"MinAngles":[5,180,0],
-"MaxAngles":[180,10,170]
+"initialAngles": [0,0,0],
+"MinAngles":[0,0,0],
+"MaxAngles":[180,180,180]
 
 }
 

@@ -40,9 +40,10 @@ class Servo_system:
 
           servo = Servo(self.Driver, index_list[i[0]],initial_angles[i[0]], max_angles[i[0]],min_angles[i[0]],MIN_IMP[0],MAX_IMP[0])
           self.Servo_list.append(servo)
-          self.Servo_list_dict[i[1]] = servo
-          print(i,len(self.Servo_list))
-          servo.set_pwm_rng();
+          servo.setAngle(initial_angles[i[0]])
+          #self.Servo_list_dict[i[1]] = servo
+          #print(i,len(self.Servo_list))
+          #servo.set_pwm_rng();
 
 
   def get_servo_count(self):
@@ -65,7 +66,7 @@ class Servo_system:
       #print(self.path+'/Actions.json')
       f = open(self.path+'/Actions.json')
       data = json.load(f)
-      print(data)
+      #print(data)
       if Action in data:
           
           return data[Action]
@@ -76,6 +77,7 @@ class Servo_system:
       #print(action)
       if path.exists(self.path+'/Actions.json'):
           Action = self.readAction(action)
+          print(Action)
           if Action is not None:
               
           
@@ -91,19 +93,19 @@ class Servo_system:
                   
                
                   for servo in self.Servo_list:
-                      #print(servo.motor_num)
-                      #print(Action['angles'][str(servo.motor_num)])
                       #print("servo num",str(servo.motor_num))
                       #print("angle ",Action['angles'][str(servo.motor_num)])
                       
                       #print("current",servo.current_angle)
                       if str(servo.motor_num) in Action['angles']:
                           
-                          rng = self.get_range(servo.current_angle,Action['angles'][str(servo.motor_num)])
+                          rng = self.get_range(servo.current_angle,Action['angles'][str(servo.motor_num)],1)
                       
                           #print(len(rng))
                            
                           if len(rng) > 1:
+                            
+                              servo.setAngle(servo.current_angle)
                               servo.setAngle(rng[1])
                               
                               bool_arr.append(servo.current_angle == rng[len(rng)-1])
@@ -140,4 +142,4 @@ class Servo_system:
           return range(curr_angle,dist_angle,step)
       else:
           #print("hi")
-          return range(curr_angle,dist_angle,step*-1)
+          return range(dist_angle,curr_angle,step)

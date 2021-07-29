@@ -35,14 +35,17 @@ class Servo:
 #(Note) comment inside this function should be removed for production purposes
   def setAngle(self,angle):
       if angle is not None:
+          #print(angle in range(self.angle_min,self.angle_max+1) or angle in range(self.angle_max, self.angle_min+1))
           if angle in range(self.angle_min,self.angle_max+1) or angle in range(self.angle_max, self.angle_min+1):
 
               #if angle  != self.current_angle:
+              
               self.Driver.servo[self.motor_num].angle = angle
-          self.current_angle = angle
+              self.current_angle = angle
 
       else:
            self.Driver.servo[self.motor_num].angle = angle
+      self.current_angle = angle
 
 
   def getAngle(self):
